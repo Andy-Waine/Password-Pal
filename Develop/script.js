@@ -1,12 +1,12 @@
 // Assignment code here
 
 //Variables
-var confirmLength;
+var confirmLength = "";
 var confirmLowercase;
 var confirmUppercase;
 var confirmNumeric;
 var confirmSpecialCharacters;
-var charcatersUsed = [];
+var charactersUsed = [];
 var finalPassword;
 
 
@@ -22,7 +22,7 @@ function generatePassword() {
   var confirmLength = (prompt("Please enter how many characters you would like your password to have (8-120)"));
 
   //Error Message if confirmLength is outside the parameter (8-120) & Loops Back to initial confirmLength prompt. **Can't get 8 or 120 as acceptable values**
-  while(confirmLength <=8 || confirmLength >=120){
+  while(confirmLength < 8 || confirmLength > 120){
     alert("Error: Please Enter a Password Length between 8 and 120.");
     var confirmLength = (prompt("How many characters will your password have? (8-120)"));
   }
@@ -36,7 +36,7 @@ function generatePassword() {
     var confirmLowercase = confirm("Include Lowercase Letters? Select 'OK' for yes, 'CANCEL' for no.");
     //Corresponding If/Else statements fot alerts and true/false concatenation to charactersUsed variable.
       if (confirmLowercase){
-        charcatersUsed = charcatersUsed.concat(lowercase);
+        charactersUsed = charactersUsed.concat(lowercase);
         alert('Your password will contain lowercase letters.');
       } else {
         alert('Your password will NOT contain lowercase letters.');
@@ -45,7 +45,7 @@ function generatePassword() {
     //Uppercase
     var confirmUppercase = confirm("Include Uppercase Letters? Select 'OK' for yes, 'CANCEL' for no.");
     if (confirmUppercase){
-      charcatersUsed = charcatersUsed.concat(uppercase);
+      charactersUsed = charactersUsed.concat(uppercase);
       alert('Your password will contain uppercase letters.');
     } else {
       alert('Your password will NOT contain uppercase letters.');
@@ -54,7 +54,7 @@ function generatePassword() {
     //Numeric
     var confirmNumeric = confirm("Include Numbers? Select 'OK' for yes, 'CANCEL' for no.");
     if (confirmNumeric){
-      charcatersUsed = charcatersUsed.concat(numbers);
+      charactersUsed = charactersUsed.concat(numbers);
       alert('Your password will contain numbers.');
     } else {
       alert('Your password will NOT contain numbers.');
@@ -63,7 +63,7 @@ function generatePassword() {
     //Special Characters
     var confirmSpecialCharacters = confirm("Include Special Characters? Select 'OK' for yes, 'CANCEL' for no.");
     if (confirmSpecialCharacters){
-      charcatersUsed = charcatersUsed.concat(specialCharacters);
+      charactersUsed = charactersUsed.concat(specialCharacters);
       alert('Your password will contain special characters.');
     } else {
       alert('Your password will NOT contain special characters.');
@@ -78,7 +78,7 @@ function generatePassword() {
         var confirmLowercase = confirm("Include Lowercase Letters? Select 'OK' for yes, 'CANCEL' for no.");
         //Corresponding If/Else statements fot alerts and true/false concatenation to charactersUsed variable.
           if (confirmLowercase){
-            charcatersUsed = charcatersUsed.concat(lowercase);
+            charactersUsed = charactersUsed.concat(lowercase);
             alert('Your password will contain lowercase letters.');
           } else {
             alert('Your password will NOT contain lowercase letters.');
@@ -87,7 +87,7 @@ function generatePassword() {
         //Uppercase
         var confirmUppercase = confirm("Include Uppercase Letters? Select 'OK' for yes, 'CANCEL' for no.");
         if (confirmUppercase){
-          charcatersUsed = charcatersUsed.concat(uppercase);
+          charactersUsed = charactersUsed.concat(uppercase);
           alert('Your password will contain uppercase letters.');
         } else {
           alert('Your password will NOT contain uppercase letters.');
@@ -96,7 +96,7 @@ function generatePassword() {
         //Numeric
         var confirmNumeric = confirm("Include Numbers? Select 'OK' for yes, 'CANCEL' for no.");
         if (confirmNumeric){
-          charcatersUsed = charcatersUsed.concat(numbers);
+          charactersUsed = charactersUsed.concat(numbers);
           alert('Your password will contain numbers.');
         } else {
           alert('Your password will NOT contain numbers.');
@@ -105,12 +105,25 @@ function generatePassword() {
         //Special Characters
         var confirmSpecialCharacters = confirm("Include Special Characters? Select 'OK' for yes, 'CANCEL' for no.");
         if (confirmSpecialCharacters){
-          charcatersUsed = charcatersUsed.concat(specialCharacters);
+          charactersUsed = charactersUsed.concat(specialCharacters);
           alert('Your password will contain special characters.');
         } else {
           alert('Your password will NOT contain special characters.');
         };
       }
+
+  //Console Log for all characters used in final equation
+  console.log(charactersUsed)
+  
+  //Placeholder string for following function
+    var finalPassword = "";
+      //Final equation that adds all variables together (Math.Floor added to prevent runoff length)
+    for (var i = 0; i < confirmLength; i++) {
+      finalPassword = charactersUsed[Math.floor(Math.random() * charactersUsed.length)] + finalPassword;
+      console.log(finalPassword)
+    }
+    //the final product of the generatePassword function
+    return finalPassword;
 
 }
 
@@ -123,7 +136,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
