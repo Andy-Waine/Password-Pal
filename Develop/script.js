@@ -6,6 +6,8 @@ var confirmLowercase;
 var confirmUppercase;
 var confirmNumeric;
 var confirmSpecialCharacters;
+var charcatersUsed = [];
+var finalPassword;
 
 
 //Arrays Referenced (missing ", [, ],  as specialCharacters options due to syntax)
@@ -26,23 +28,89 @@ function generatePassword() {
   }
 
   //Confirmation/Length
- alert('The length of your password will be ' + confirmLength + ' characters long');
+ alert('The Length of Your Password Will Be ' + confirmLength + ' Characters Long.');
 
   //Confirm Lowercase, Uppercase, Numeric, and/or Special Characters
-  var confirmLowercase = confirm("Include Lowercase Letters? Select 'OK' for yes, 'CANCEL' for no.");
-  var confirmUppercase = confirm("Include Uppercase Letters? Select 'OK' for yes, 'CANCEL' for no.");
-  var confirmNumeric = confirm("Include Numbers? Select 'OK' for yes, 'CANCEL' for no.");
-  var confirmSpecialCharacters = confirm("Include Special Characters? Select 'OK' for yes, 'CANCEL' for no.");
 
-    //Error Message if None Selected & Loops Back to var confirmLowercase = confirm(...)
-    while(confirmLowercase === false && confirmUppercase === false && confirmNumeric === false && confirmNumeric === false) {
-      alert("Give me something work with here... Please select at least one option.");
-      var confirmLowercase = confirm("Include Lowercase Letters? Select 'OK' for yes, 'CANCEL' for no.");
-      var confirmUppercase = confirm("Include Uppercase Letters? Select 'OK' for yes, 'CANCEL' for no.");
-      var confirmNumeric = confirm("Include Numbers? Select 'OK' for yes, 'CANCEL' for no.");
-      var confirmSpecialCharacters = confirm("Include Special Characters? Select 'OK' for yes, 'CANCEL' for no.")
-    }
+    //Lowercase
+    var confirmLowercase = confirm("Include Lowercase Letters? Select 'OK' for yes, 'CANCEL' for no.");
+    //Corresponding If/Else statements fot alerts and true/false concatenation to charactersUsed variable.
+      if (confirmLowercase){
+        charcatersUsed = charcatersUsed.concat(lowercase);
+        alert('Your password will contain lowercase letters.');
+      } else {
+        alert('Your password will NOT contain lowercase letters.');
+      };
+    
+    //Uppercase
+    var confirmUppercase = confirm("Include Uppercase Letters? Select 'OK' for yes, 'CANCEL' for no.");
+    if (confirmUppercase){
+      charcatersUsed = charcatersUsed.concat(uppercase);
+      alert('Your password will contain uppercase letters.');
+    } else {
+      alert('Your password will NOT contain uppercase letters.');
+    };
 
+    //Numeric
+    var confirmNumeric = confirm("Include Numbers? Select 'OK' for yes, 'CANCEL' for no.");
+    if (confirmNumeric){
+      charcatersUsed = charcatersUsed.concat(numbers);
+      alert('Your password will contain numbers.');
+    } else {
+      alert('Your password will NOT contain numbers.');
+    };
+
+    //Special Characters
+    var confirmSpecialCharacters = confirm("Include Special Characters? Select 'OK' for yes, 'CANCEL' for no.");
+    if (confirmSpecialCharacters){
+      charcatersUsed = charcatersUsed.concat(specialCharacters);
+      alert('Your password will contain special characters.');
+    } else {
+      alert('Your password will NOT contain special characters.');
+    };
+
+      //**LOOP**: Error Message if None Selected & Loops Back to var confirmLowercase = confirm(...) Note: this can be shortened by wrapping everything in a function...
+      while(confirmLowercase === false && confirmUppercase === false && confirmNumeric === false && confirmNumeric === false) {
+        alert("Give me something work with here... Please select at least one option.");
+        //Confirm Lowercase, Uppercase, Numeric, and/or Special Characters
+
+        //Lowercase
+        var confirmLowercase = confirm("Include Lowercase Letters? Select 'OK' for yes, 'CANCEL' for no.");
+        //Corresponding If/Else statements fot alerts and true/false concatenation to charactersUsed variable.
+          if (confirmLowercase){
+            charcatersUsed = charcatersUsed.concat(lowercase);
+            alert('Your password will contain lowercase letters.');
+          } else {
+            alert('Your password will NOT contain lowercase letters.');
+          };
+        
+        //Uppercase
+        var confirmUppercase = confirm("Include Uppercase Letters? Select 'OK' for yes, 'CANCEL' for no.");
+        if (confirmUppercase){
+          charcatersUsed = charcatersUsed.concat(uppercase);
+          alert('Your password will contain uppercase letters.');
+        } else {
+          alert('Your password will NOT contain uppercase letters.');
+        };
+
+        //Numeric
+        var confirmNumeric = confirm("Include Numbers? Select 'OK' for yes, 'CANCEL' for no.");
+        if (confirmNumeric){
+          charcatersUsed = charcatersUsed.concat(numbers);
+          alert('Your password will contain numbers.');
+        } else {
+          alert('Your password will NOT contain numbers.');
+        };
+
+        //Special Characters
+        var confirmSpecialCharacters = confirm("Include Special Characters? Select 'OK' for yes, 'CANCEL' for no.");
+        if (confirmSpecialCharacters){
+          charcatersUsed = charcatersUsed.concat(specialCharacters);
+          alert('Your password will contain special characters.');
+        } else {
+          alert('Your password will NOT contain special characters.');
+        };
+      }
 
 }
 
