@@ -1,4 +1,4 @@
-# Password Generator Starter Code
+# Random Password Generator
 
 A random password generator with customizable variables (length, characters, cases) built using JS on an existing HTML/CSS framework.
 
