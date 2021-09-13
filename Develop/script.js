@@ -122,6 +122,8 @@ function generatePassword() {
       finalPassword = charactersUsed[Math.floor(Math.random() * charactersUsed.length)] + finalPassword;
       console.log(finalPassword)
     }
+
+
     //the final product of the generatePassword function
     return finalPassword;
 
