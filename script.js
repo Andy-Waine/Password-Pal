@@ -71,7 +71,7 @@ function generatePassword() {
 
       //**LOOP**: Error Message if None Selected & Loops Back to var confirmLowercase = confirm(...) Note: this can be shortened by wrapping everything in a function...
       while(confirmLowercase === false && confirmUppercase === false && confirmNumeric === false && confirmNumeric === false) {
-        alert("Give me something work with here... Please select at least one option.");
+        alert("Give me something to work with here... Please select at least one option.");
         //Confirm Lowercase, Uppercase, Numeric, and/or Special Characters
 
         //Lowercase
