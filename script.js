@@ -1,5 +1,3 @@
-// Assignment code here
-
 //Variables
 var confirmLength = "";
 var confirmLowercase;
